@@ -8,13 +8,9 @@ namespace TeamInternationalPract1Football
 {
 	class Trainer:Person
 	{
-		int Competition;
-		public Trainer(string Name, int Age, string Gender, string Status,int Competition)
+		public int Competition;
+		public Trainer(string Name, int Age, string Gender, string Status,int Competition):base(Name,Age,Status,Gender)
 		{
-			this.Name = Name;
-			this.Age = Age;
-			this.Gender = Gender;
-			this.Status = Status;
 			this.Competition = Competition;
 		}
 	}

@@ -10,12 +10,8 @@ namespace TeamInternationalPract1Football
 	{
 		public int Skill { get; set; }
 		public int NumberPlayer { get; set; }
-		Player(string Name,int Age,string Gender,string Status, int Skill , int NumberPlayer)
+		public Player(string Name,int Age,string Gender,string Status, int Skill , int NumberPlayer) : base(Name,Age, Status, Gender)
 		{
-			this.Name = Name;
-			this.Age = Age;
-			this.Gender = Gender;
-			this.Status = Status;
 			this.Skill = Skill;
 			this.NumberPlayer = NumberPlayer;
 		}

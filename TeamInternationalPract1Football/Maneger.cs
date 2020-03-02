@@ -9,12 +9,8 @@ namespace TeamInternationalPract1Football
 	class Maneger:Person
 	{
 		public int LuckAppTeam;
-		public Maneger(string Name, int Age, string Gender, string Status, int LuckAppTeam)
+		public Maneger(string Name, int Age, string Gender, string Status, int LuckAppTeam):base(Name,Age,Status,Gender)
 		{
-			this.Name = Name;
-			this.Age = Age;
-			this.Gender = Gender;
-			this.Status = Status;
 			this.LuckAppTeam = LuckAppTeam;
 		}
 	}

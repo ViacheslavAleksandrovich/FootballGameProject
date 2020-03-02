@@ -11,10 +11,10 @@ namespace TeamInternationalPract1Football
 		public FootballTeam FootballTeam1;
 		public FootballTeam FootballTeam2;
 
-		public FootballGame(string TeamName1,string TeamName2)
+		public FootballGame(FootballTeam FootballTeam1, FootballTeam FootballTeam2)
 		{
-			FootballTeam1 = new FootballTeam(TeamName1);
-			FootballTeam2 = new FootballTeam(TeamName2);
+			this.FootballTeam1 = FootballTeam1;
+			this.FootballTeam2 = FootballTeam2;
 		}
 
 		public void Start()
