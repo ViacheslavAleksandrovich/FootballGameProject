@@ -24,6 +24,9 @@ namespace TeamInternationalPract1Football
 			footballTeam2.DisplayInformationTeam();
 
 			FootballGame game = new FootballGame(footballTeam1, footballTeam2);
+
+
+
 			game.Start();
 
 			Console.Read();

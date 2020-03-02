@@ -12,15 +12,18 @@ namespace TeamInternationalPract1Football
 		public List<Player> ListPlayer = new List<Player>();
 		public Trainer trainer;
 		public List<Maneger> ListNManeger = new List<Maneger>();
-		public int SkillTeam = 0;
 		Random random = new Random();
+
+		public int SkillTeam = 0;
+		public int GountGoals { get; set; }
+
 		public FootballTeam(string NameTeam)
 		{
 			ListPlayer = new List<Player>(11);
 			this.NameTeam = NameTeam;
 			for(int i = 0;i < 11;i++)
 			{
-				Player newPlayer = new Player(String.Format("Player ", NameTeam), random.Next(18, 25), "Men","Player", random.Next(10, 100),i);
+				Player newPlayer = new Player(String.Format("Player ", NameTeam), random.Next(18, 25), "Men","Player", random.Next(10, 100),i + 1,false);
 				ListPlayer.Add(newPlayer);
 			}
 			foreach(var SkillPlayer in ListPlayer)
@@ -56,6 +59,18 @@ namespace TeamInternationalPract1Football
 			{
 				Console.WriteLine("{0} Age {1} {2} {3} LuckAppTeam {4}", Maneger.Name, Maneger.Age, Maneger.Status, Maneger.Gender, Maneger.LuckAppTeam);
 			}
+		}
+
+		public void PlayerGetRedKard(int NumberPlayer)
+		{
+			ListPlayer[NumberPlayer].RedKard = true;
+			ListPlayer.RemoveAt(NumberPlayer);
+			SkillTeam -= ListPlayer[NumberPlayer].Skill;
+		}
+
+		public void TeamGetGoal()
+		{
+			++GountGoals;
 		}
 	}
 }
