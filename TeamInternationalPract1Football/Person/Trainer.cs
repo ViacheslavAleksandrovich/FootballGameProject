@@ -13,5 +13,11 @@ namespace TeamInternationalPract1Football
 		{
 			this.Competition = Competition;
 		}
+
+		protected override void DisplayInform()
+		{
+			Console.WriteLine($"Name Trainer " + this.Name + " Gender " + this.Gender + " Age " + this.Age + " Status " + this.Status
+				+ " Competition " + this.Competition);
+		}
 	}
 }

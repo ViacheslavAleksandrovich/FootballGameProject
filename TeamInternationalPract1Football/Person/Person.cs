@@ -23,7 +23,7 @@ namespace TeamInternationalPract1Football
 
 		protected virtual void DisplayInform()
 		{
-			Console.WriteLine($"Name person -> " + this.Name + "Gender ->" + this.Gender + "Age -> " + this.Age + "Status -> " + this.Status);
+			Console.WriteLine($"Name Person " + this.Name + " Gender " + this.Gender + " Age " + this.Age + " Status " + this.Status);
 		}
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using List;
 
 namespace TeamInternationalPract1Football
 {
@@ -15,7 +16,7 @@ namespace TeamInternationalPract1Football
 		Random random = new Random();
 
 		public int SkillTeam = 0;
-		public int GountGoals { get; set; }
+		public int TeamGountGoals { get; set; }
 
 		public FootballTeam(string NameTeam)
 		{
@@ -26,9 +27,9 @@ namespace TeamInternationalPract1Football
 				Player newPlayer = new Player(String.Format("Player ", NameTeam), random.Next(18, 25), "Men","Player", random.Next(10, 100),i + 1,false);
 				ListPlayer.Add(newPlayer);
 			}
-			foreach(var SkillPlayer in ListPlayer)
+			for(int i = 0; i < ListPlayer.Count;i++)
 			{
-				SkillTeam += SkillPlayer.Skill;
+				SkillTeam += ListPlayer[i].Skill;
 			}
 		}
 		public void AddTrainer(string Name,int Age,string Status,string Gender,int Competition)
@@ -40,37 +41,41 @@ namespace TeamInternationalPract1Football
 		{
 			Maneger maneger = new Maneger(Name, Age, Gender, Status, LuckAppTeam);
 			this.ListNManeger.Add(maneger);
-			foreach(var ManegersSkill in ListNManeger)
+			for (int i = 0; i < ListNManeger.Count; i++)
 			{
-				SkillTeam += ManegersSkill.LuckAppTeam;
+				SkillTeam += ListNManeger[i].LuckAppTeam;
 			}
 		}
 
 		public void DisplayInformationTeam()
 		{
 			Console.WriteLine(this.NameTeam);
-			foreach(var PlayerTeam in ListPlayer)
+			for(int i = 0; i < ListPlayer.Count; i++)
 			{
-				Console.WriteLine("{0} Age {1} {2} {3} {4} Skill {5}", PlayerTeam.Name,PlayerTeam.Age,PlayerTeam.Gender,PlayerTeam.Status,PlayerTeam.NumberPlayer,PlayerTeam.Skill);
+				Console.WriteLine("{0} Age {1} {2} {3} {4} Skill {5}", ListPlayer[i].Name, ListPlayer[i].Age, ListPlayer[i].Gender,
+					ListPlayer[i].Status, ListPlayer[i].NumberPlayer, ListPlayer[i].Skill);
 			}
 
+			
 			Console.WriteLine("{0} Age {1} {2} {3} Competition {4}", trainer.Name, trainer.Age, trainer.Status, trainer.Gender, trainer.Competition);
-			foreach(var Maneger in ListNManeger)
+			for (int i = 0; i < ListNManeger.Count; i++)
 			{
-				Console.WriteLine("{0} Age {1} {2} {3} LuckAppTeam {4}", Maneger.Name, Maneger.Age, Maneger.Status, Maneger.Gender, Maneger.LuckAppTeam);
+				Console.WriteLine("{0} Age {1} {2} {3} LuckAppTeam {4}", ListNManeger[i].Name, ListNManeger[i].Age,
+					ListNManeger[i].Status, ListNManeger[i].Gender, ListNManeger[i].LuckAppTeam);
 			}
 		}
 
 		public void PlayerGetRedKard(int NumberPlayer)
 		{
 			ListPlayer[NumberPlayer].RedKard = true;
-			ListPlayer.RemoveAt(NumberPlayer);
+			//ListPlayer.RemoveAt(NumberPlayer);
 			SkillTeam -= ListPlayer[NumberPlayer].Skill;
 		}
 
-		public void TeamGetGoal()
+		public void TeamGetGoal(int NumberPlayer)
 		{
-			++GountGoals;
+			++ListPlayer[NumberPlayer].CountGoals;
+			++TeamGountGoals;
 		}
 	}
 }
